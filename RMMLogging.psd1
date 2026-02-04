@@ -27,7 +27,10 @@
         PSData = @{
             ProjectUri = 'https://github.com/Merit-IT/RMMLogging'
             LicenseUri = 'https://github.com/Merit-IT/RMMLogging/blob/main/LICENSE'
-            ReleaseNotes = 'Initial release with Send-RMMError function'
+            ReleaseNotes = @'
+1.0.1 - Updated with versioned structure
+1.0.0 - Initial release
+'@
         }
     }
 }
