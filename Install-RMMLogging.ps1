@@ -5,7 +5,6 @@ $GitHubRepo = "RMMLoggingModule"
 $GitHubBranch = "main"
 
 Write-Host "Installing $ModuleName from GitHub..." -ForegroundColor Cyan
-
 # URLs
 $BaseUrl = "https://raw.githubusercontent.com/$GitHubOwner/$GitHubRepo/$GitHubBranch"
 $ManifestUrl = "$BaseUrl/$ModuleName.psd1"
