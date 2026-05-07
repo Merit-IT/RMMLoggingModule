@@ -13,7 +13,7 @@ function Send-RMMError {
         [Parameter(Mandatory)]
         [string]$ErrorMessage,
         
-        [string]$ApiUrl = "https://logerror-prod-nwee4zhwawxie.azurewebsites.net/api/LogError"
+        [string]$ApiUrl = "https://logerror-dev-4cfmkin4c22mi.azurewebsites.net/api/LogError"
     )
     
     $orgId = $env:NINJA_ORGANIZATION_ID
