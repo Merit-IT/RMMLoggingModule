@@ -1,5 +1,5 @@
 @{
-    ModuleVersion = '1.0.2'
+    ModuleVersion = '1.0.3'
     GUID = 'a1b2c3d4-e5f6-7890-abcd-ef1234567890' 
     Author = 'Merit IT'
     CompanyName = 'Merit IT LLC'
@@ -28,6 +28,7 @@
             ProjectUri = 'https://github.com/Merit-IT/RMMLogging'
             LicenseUri = 'https://github.com/Merit-IT/RMMLogging/blob/main/LICENSE'
             ReleaseNotes = @'
+1.0.3 - Report to the relay at rmmlog.meritit.us (the old hostnames no longer exist); request timeout raised from 5 to 15 seconds, configurable with -TimeoutSec
 1.0.1 - Updated with versioned structure
 1.0.0 - Initial release
 '@
