@@ -13,7 +13,13 @@ function Send-RMMError {
         [Parameter(Mandatory)]
         [string]$ErrorMessage,
         
-        [string]$ApiUrl = "https://logerror-dev-4cfmkin4c22mi.azurewebsites.net/api/LogError"
+        [string]$ApiUrl = "https://logerror-dev-4cfmkin4c22mi.azurewebsites.net/api/LogError",
+
+        # The relay runs on a serverless plan and its first request after idle can take over 4 seconds (host
+        # start, then NinjaOne and Sentry calls). A 5 second limit dropped those reports without any error.
+        # This only delays a script when the relay is down, and only by this long.
+        [ValidateRange(1, 120)]
+        [int]$TimeoutSec = 15
     )
     
     $orgId = $env:NINJA_ORGANIZATION_ID
@@ -45,7 +51,7 @@ function Send-RMMError {
             -Method Post `
             -Body $payload `
             -ContentType "application/json" `
-            -TimeoutSec 5 `
+            -TimeoutSec $TimeoutSec `
             -ErrorAction Stop | Out-Null
          Write-Verbose "Sent logs"   
     } catch {
