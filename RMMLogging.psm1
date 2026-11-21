@@ -13,7 +13,9 @@ function Send-RMMError {
         [Parameter(Mandatory)]
         [string]$ErrorMessage,
         
-        [string]$ApiUrl = "https://logerror-dev-4cfmkin4c22mi.azurewebsites.net/api/LogError",
+        # A stable name, not the Function App's generated hostname, so the app can be rebuilt or moved
+        # without redeploying this module to every endpoint.
+        [string]$ApiUrl = "https://rmmlog.meritit.us/api/LogError",
 
         # The relay runs on a serverless plan and its first request after idle can take over 4 seconds (host
         # start, then NinjaOne and Sentry calls). A 5 second limit dropped those reports without any error.
